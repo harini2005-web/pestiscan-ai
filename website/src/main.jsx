@@ -48,7 +48,7 @@ function App() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch("/api/predict", { method: "POST", body: formData });
+      const response = await fetch("https://pestiscan-ai.onrender.com/api/predict", { method: "POST", body: formData });
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(payload.detail || "Image analysis failed. Check that the ML backend is running.");
       setImageResult(payload);
